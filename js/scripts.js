@@ -1,30 +1,23 @@
-<script src="https://cdn.jsdelivr.net/npm/three@0.133.1/build/three.min.js"></script>
+const mouse = new THREE.Vector2();
+const raycaster = new THREE.Raycaster();
 
-// Set up the scene, camera, and renderer
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('scene-container').appendChild(renderer.domElement);
+function onMouseClick(event) {
+    // Convert the mouse position to normalized device coordinates (-1 to +1) for both components
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-// Create a sphere
-const geometry = new THREE.SphereGeometry(1, 32, 32); // Radius, width segments, height segments
-const material = new THREE.MeshBasicMaterial({ color: 0xffffff }); // White color
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+    // Update the raycaster with the camera and mouse position
+    raycaster.setFromCamera(mouse, camera);
 
-// Position the camera
-camera.position.z = 5; // Distance from the sphere
+    // Calculate objects intersecting the picking ray
+    const intersects = raycaster.intersectObjects(scene.children, true);
 
-// Animation loop
-function animate() {
-    requestAnimationFrame(animate);
-
-    // Rotate the sphere (optional)
-    sphere.rotation.x += 0.01;
-    sphere.rotation.y += 0.01;
-
-    renderer.render(scene, camera);
+    if (intersects.length > 0) {
+        // Assuming the first intersected object is the most relevant one
+        if (intersects[0].object.userData.URL) {
+            window.location.href = intersects[0].object.userData.URL; // Redirect to the stored URL
+        }
+    }
 }
 
-animate();
+renderer.domElement.addEventListener('click', onMouseClick);

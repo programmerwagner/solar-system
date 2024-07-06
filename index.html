@@ -36,6 +36,8 @@
         const jupiterGeometry = new THREE.SphereGeometry(1, 32, 32); 
         const jupiterMaterial = new THREE.MeshBasicMaterial({ map: jupiterTexture });
         const jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
+        jupiter.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
+
         scene.add(jupiter);
 
 // Adding Mars
