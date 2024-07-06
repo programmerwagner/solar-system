@@ -4,14 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lara Wagner's Website</title>
-    <link rel="stylesheet" href="css/styles.css"> 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.133.1/build/three.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Ensure background is dark for contrast */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #scene-container {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Lara Wagner's Website</h1>
-    </header>
     <div id="scene-container"></div>
-    <script src="js/script.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/three@0.133.1/build/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('scene-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.SphereGeometry(1, 32, 32);
+        const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.x += 0.01;
+            sphere.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
 </body>
 </html>
