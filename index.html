@@ -66,7 +66,6 @@ renderer.domElement.addEventListener('click', onMouseClick);
         const marsMaterial = new THREE.MeshBasicMaterial({ map: marsTexture });
         const mars = new THREE.Mesh(marsGeometry, marsMaterial);
         mars.position.x = -1; 
-        mars.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
 
         scene.add(mars);
         // Adding Earth
@@ -75,7 +74,6 @@ renderer.domElement.addEventListener('click', onMouseClick);
         const earthMaterial = new THREE.MeshBasicMaterial({ map: earthTexture });
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
         earth.position.x = -2; 
-        earth.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
 
         scene.add(earth);
         // Adding Venus
@@ -84,7 +82,6 @@ renderer.domElement.addEventListener('click', onMouseClick);
         const venusMaterial = new THREE.MeshBasicMaterial({ map: venusTexture });
         const venus = new THREE.Mesh(venusGeometry, venusMaterial);
         venus.position.x = -3; 
-        venus.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
 
         scene.add(venus);
         camera.position.z = 5;
@@ -94,7 +91,6 @@ renderer.domElement.addEventListener('click', onMouseClick);
         const mercuryMaterial = new THREE.MeshBasicMaterial({ map: mercuryTexture });
         const mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
         mercury.position.x = -4; 
-        mercury.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
 
         scene.add(mercury);
 
@@ -104,8 +100,6 @@ renderer.domElement.addEventListener('click', onMouseClick);
         const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
         const sun = new THREE.Mesh(sunGeometry, sunMaterial);
         sun.position.x = -7; 
-        sun.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
-
         scene.add(sun);
 
         // Adding Saturn
@@ -114,8 +108,6 @@ renderer.domElement.addEventListener('click', onMouseClick);
         const saturnMaterial = new THREE.MeshBasicMaterial({ map: saturnTexture });
         const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
         saturn.position.x = +2; 
-        sautrn.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
-
         scene.add(saturn);
 
     // Texture Loader for Saturn's Rings
@@ -143,8 +135,6 @@ scene.add(rings);
         const uranusMaterial = new THREE.MeshBasicMaterial({ map: uranusTexture });
         const uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
         uranus.position.x = +3.5; 
-        uranus.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
-
         scene.add(uranus);
         // Adding Neptune
         const neptuneTexture = new THREE.TextureLoader().load('textures/neptunemap.jpg'); 
@@ -152,8 +142,6 @@ scene.add(rings);
         const neptuneMaterial = new THREE.MeshBasicMaterial({ map: neptuneTexture });
         const neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
         neptune.position.x = +4.5; 
-        neptune.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
-
         scene.add(neptune);
         // Adding Pluto 
         const plutoTexture = new THREE.TextureLoader().load('textures/plutomap.jpg'); 
@@ -161,8 +149,6 @@ scene.add(rings);
         const plutoMaterial = new THREE.MeshBasicMaterial({ map: plutoTexture });
         const pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
         pluto.position.x = +6.5; 
-        pluto.userData = { URL: 'https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/mines.html' };
-
         scene.add(pluto);
 
     function animate() {
