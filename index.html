@@ -70,7 +70,7 @@
 
         // Adding the Sun
         const sunTexture = new THREE.TextureLoader().load('textures/sunmap.jpg'); 
-        const sunGeometry = new THREE.SphereGeometry(2.5, 32, 32); 
+        const sunGeometry = new THREE.SphereGeometry(2.5, 64, 64); 
         const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
         const sun = new THREE.Mesh(sunGeometry, sunMaterial);
         sun.position.x = -7; 
