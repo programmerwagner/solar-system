@@ -38,13 +38,20 @@
         const jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
         scene.add(jupiter);
 
-// Adding Mars, smaller and to the left
+// Adding Mars
         const marsTexture = new THREE.TextureLoader().load('textures/marsmap.jpg'); 
         const marsGeometry = new THREE.SphereGeometry(0.5, 32, 32); // Half the size of Jupiter
         const marsMaterial = new THREE.MeshBasicMaterial({ map: marsTexture });
         const mars = new THREE.Mesh(marsGeometry, marsMaterial);
         mars.position.x = -2; // Move Mars to the left of Jupiter
         scene.add(mars);
+        // Adding Earth
+        const earthTexture = new THREE.TextureLoader().load('textures/earthmap.jpg'); 
+        const earthGeometry = new THREE.SphereGeometry(0.5, 32, 32); // Half the size of Jupiter
+        const earthMaterial = new THREE.MeshBasicMaterial({ map: earthTexture });
+        const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+        earth.position.x = -4; 
+        scene.add(earth);
 
         camera.position.z = 5;
 
@@ -52,6 +59,7 @@
         requestAnimationFrame(animate);
         jupiter.rotation.y += 0.005; 
         mars.rotation.y += 0.005; 
+        earth.rotation.y += 0.005;
         renderer.render(scene, camera);
 }
 
