@@ -30,6 +30,26 @@
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('scene-container').appendChild(renderer.domElement);
+        const mouse = new THREE.Vector2();
+        const raycaster = new THREE.Raycaster();
+
+        function onMouseClick(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+
+            const intersects = raycaster.intersectObjects(scene.children, true);
+
+            if (intersects.length > 0) {
+                if (intersects[0].object.userData.URL) {
+                    window.location.href = intersects[0].object.userData.URL; // Redirect to the stored URL
+        }
+    }
+}
+
+renderer.domElement.addEventListener('click', onMouseClick);
+
 
 // Texture Loader for Jupiter
         const jupiterTexture = new THREE.TextureLoader().load('textures/jupitermap.jpg');
