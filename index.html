@@ -108,21 +108,21 @@ scene.add(rings);
         const uranusGeometry = new THREE.SphereGeometry(0.3, 32, 32); 
         const uranusMaterial = new THREE.MeshBasicMaterial({ map: uranusTexture });
         const uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
-        uranus.position.x = +3; 
+        uranus.position.x = +3.5; 
         scene.add(uranus);
         // Adding Neptune
         const neptuneTexture = new THREE.TextureLoader().load('textures/neptunemap.jpg'); 
         const neptuneGeometry = new THREE.SphereGeometry(0.5, 32, 32); 
         const neptuneMaterial = new THREE.MeshBasicMaterial({ map: neptuneTexture });
         const neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
-        neptune.position.x = +4; 
+        neptune.position.x = +4.5; 
         scene.add(neptune);
         // Adding Pluto 
         const plutoTexture = new THREE.TextureLoader().load('textures/plutomap.jpg'); 
-        const plutoGeometry = new THREE.SphereGeometry(0.5, 32, 32); 
+        const plutoGeometry = new THREE.SphereGeometry(0.2, 32, 32); 
         const plutoMaterial = new THREE.MeshBasicMaterial({ map: plutoTexture });
         const pluto = new THREE.Mesh(plutoGeometry, plutoMaterial);
-        pluto.position.x = +5; 
+        pluto.position.x = +6.5; 
         scene.add(pluto);
 
     function animate() {
