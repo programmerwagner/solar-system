@@ -43,21 +43,21 @@
         const marsGeometry = new THREE.SphereGeometry(0.33, 32, 32); 
         const marsMaterial = new THREE.MeshBasicMaterial({ map: marsTexture });
         const mars = new THREE.Mesh(marsGeometry, marsMaterial);
-        mars.position.x = -2; // Move Mars to the left of Jupiter
+        mars.position.x = -1; // Move Mars to the left of Jupiter
         scene.add(mars);
         // Adding Earth
         const earthTexture = new THREE.TextureLoader().load('textures/earthmap.jpg'); 
         const earthGeometry = new THREE.SphereGeometry(0.5, 32, 32); 
         const earthMaterial = new THREE.MeshBasicMaterial({ map: earthTexture });
         const earth = new THREE.Mesh(earthGeometry, earthMaterial);
-        earth.position.x = -3.5; 
+        earth.position.x = -2; 
         scene.add(earth);
         // Adding Venus
         const venusTexture = new THREE.TextureLoader().load('textures/venusmap.jpg'); 
         const venusGeometry = new THREE.SphereGeometry(0.4, 32, 32); 
         const venusMaterial = new THREE.MeshBasicMaterial({ map: venusTexture });
         const venus = new THREE.Mesh(venusGeometry, venusMaterial);
-        venus.position.x = -4; 
+        venus.position.x = -3; 
         scene.add(venus);
         camera.position.z = 5;
         // Adding Mercury
@@ -65,7 +65,7 @@
         const mercuryGeometry = new THREE.SphereGeometry(0.2, 32, 32); 
         const mercuryMaterial = new THREE.MeshBasicMaterial({ map: mercuryTexture });
         const mercury = new THREE.Mesh(mercuryGeometry, mercuryMaterial);
-        mercury.position.x = -4.5; 
+        mercury.position.x = -4; 
         scene.add(mercury);
 
         // Adding the Sun
@@ -89,14 +89,14 @@
         const uranusGeometry = new THREE.SphereGeometry(0.3, 32, 32); 
         const uranusMaterial = new THREE.MeshBasicMaterial({ map: uranusTexture });
         const uranus = new THREE.Mesh(uranusGeometry, uranusMaterial);
-        uranus.position.x = +1.75; 
+        uranus.position.x = +2; 
         scene.add(uranus);
         // Adding Neptune
         const neptuneTexture = new THREE.TextureLoader().load('textures/neptunemap.jpg'); 
         const neptuneGeometry = new THREE.SphereGeometry(0.5, 32, 32); 
         const neptuneMaterial = new THREE.MeshBasicMaterial({ map: neptuneTexture });
         const neptune = new THREE.Mesh(neptuneGeometry, neptuneMaterial);
-        neptune.position.x = +2.5; 
+        neptune.position.x = +3; 
         scene.add(neptune);
         // Adding Pluto 
         const plutoTexture = new THREE.TextureLoader().load('textures/plutomap.jpg'); 
