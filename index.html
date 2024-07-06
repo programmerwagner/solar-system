@@ -31,24 +31,31 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('scene-container').appendChild(renderer.domElement);
 
-        // Texture Loader
-        const loader = new THREE.TextureLoader();
-        const texture = loader.load('textures/jupitermap.jpg');  
+// Texture Loader for Jupiter
+        const jupiterTexture = new THREE.TextureLoader().load('textures/jupitermap.jpg');
+        const jupiterGeometry = new THREE.SphereGeometry(1, 32, 32); 
+        const jupiterMaterial = new THREE.MeshBasicMaterial({ map: jupiterTexture });
+        const jupiter = new THREE.Mesh(jupiterGeometry, jupiterMaterial);
+        scene.add(jupiter);
 
-        const geometry = new THREE.SphereGeometry(1, 32, 32);
-        const material = new THREE.MeshBasicMaterial({ map: texture });
-        const sphere = new THREE.Mesh(geometry, material);
-        scene.add(sphere);
+// Adding Mars, smaller and to the left
+        const marsTexture = new THREE.TextureLoader().load('textures/marsmap.jpg'); 
+        const marsGeometry = new THREE.SphereGeometry(0.5, 32, 32); // Half the size of Jupiter
+        const marsMaterial = new THREE.MeshBasicMaterial({ map: marsTexture });
+        const mars = new THREE.Mesh(marsGeometry, marsMaterial);
+        mars.position.x = -2; // Move Mars to the left of Jupiter
+        scene.add(mars);
 
         camera.position.z = 5;
 
-        function animate() {
-            requestAnimationFrame(animate);
-            sphere.rotation.y += 0.005;
-            renderer.render(scene, camera);
-        }
+    function animate() {
+        requestAnimationFrame(animate);
+        jupiter.rotation.y += 0.005; 
+        mars.rotation.y += 0.005; 
+        renderer.render(scene, camera);
+}
 
-        animate();
+animate();
     </script>
 </body>
 </html>
