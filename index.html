@@ -70,7 +70,7 @@
 
         // Adding the Sun
         const sunTexture = new THREE.TextureLoader().load('textures/sunmap.jpg'); 
-        const sunGeometry = new THREE.SphereGeometry(2.5, 64, 64); 
+        const sunGeometry = new THREE.SphereGeometry(2.5, 32, 32); 
         const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
         const sun = new THREE.Mesh(sunGeometry, sunMaterial);
         sun.position.x = -7; 
@@ -83,6 +83,25 @@
         const saturn = new THREE.Mesh(saturnGeometry, saturnMaterial);
         saturn.position.x = +1; 
         scene.add(saturn);
+
+    // Texture Loader for Saturn's Rings
+    const ringTexture = new THREE.TextureLoader().load('textures/saturnringcolor.jpg'); // Ensure you have this texture
+    const ringGeometry = new THREE.RingGeometry(0.5, 0.7, 64); // Inner radius, outer radius, segments
+    const ringMaterial = new THREE.MeshBasicMaterial({ 
+    map: ringTexture,
+    side: THREE.DoubleSide,
+    transparent: true, 
+    opacity: 0.8
+});
+const rings = new THREE.Mesh(ringGeometry, ringMaterial);
+
+// Position and tilt the rings
+rings.position.x = saturn.position.x;
+rings.position.y = saturn.position.y;
+rings.rotation.x = -0.5 * Math.PI; // Rotate the ring to lay flat
+rings.rotation.y = 0.1 * Math.PI; // Optional: slight tilt on the Y-axis for visual effect
+
+scene.add(rings);
         //Adding Uranus
 
         const uranusTexture = new THREE.TextureLoader().load('textures/uranusmap.jpg'); 
